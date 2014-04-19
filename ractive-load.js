@@ -1,6 +1,6 @@
 /*
 
-	ractive-load - v0.1.3 - 2014-04-17
+	ractive-load - v0.1.3 - 2014-04-19
 	===================================================================
 
 	Next-generation DOM manipulation - http://ractivejs.org
@@ -327,8 +327,8 @@
 		function ractiveRequire( name ) {
 			var dependency, qualified;
 			dependency = Ractive.lib[ name ] || window[ name ];
-			if ( !dependency && typeof Ractive.lib === 'function' ) {
-				dependency = Ractive.lib( name );
+			if ( !dependency && typeof require === 'function' ) {
+				dependency = require( name );
 			}
 			if ( !dependency ) {
 				qualified = !/^[$_a-zA-Z][$_a-zA-Z0-9]*$/.test( name ) ? '["' + name + '"]' : '.' + name;

@@ -51,8 +51,8 @@ define([
 
 		dependency = Ractive.lib[ name ] || window[ name ];
 
-		if(!dependency && typeof Ractive.lib === 'function'){
-			dependency = Ractive.lib(name);
+		if(!dependency && typeof require === 'function'){
+			dependency = require(name);
 		}
 		
 		if ( !dependency ) {
